@@ -1,8 +1,3 @@
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
-import "swiper/css/pagination";
-
 import { Toaster } from "react-hot-toast";
 import { Montserrat } from "next/font/google";
 

@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <nav className={`flex items-center p-3 gap-4 border-b-4 border-[#cd9a41] font-medium gradientLight sticky top-0 z-10`}>
-      <Link href="/" smooth="true">
+      <Link rel="preload" href="/" smooth="true" type="image/png">
         <Image src={logo} alt="banner" width={370} height={100} quality={90} />
       </Link>
       <div className="sm:hidden ml-auto">

@@ -11,7 +11,7 @@ const Hero = () => {
   const iconClasses = "mr-2 text-[#cd9a41]";
 
   return (
-    <section className={sectionClasses} style={{ backgroundImage: `url('/heroImage.jpg')` }}>
+    <section className={sectionClasses} rel="preload" style={{ backgroundImage: `url('/heroImage.webp')` }}>
       <div className="flex flex-col md:flex-row md:justify-evenly items-center gap-2 p-5 text-nowrap text-sm md:text-lg">
         <div className="flex items-center">
           <HiOutlinePhone className={iconClasses} />
