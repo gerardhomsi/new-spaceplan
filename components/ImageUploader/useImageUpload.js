@@ -25,11 +25,6 @@ const useImageUpload = (onImageFilesChange) => {
     try {
       const updatedFiles = imageFiles.filter((_, i) => i !== index);
       setImageFiles(updatedFiles);
-
-      // If necessary, for very large files before upload completes
-      if (typeof window !== "undefined" && imageFiles[index]) {
-        window.URL.revokeObjectURL(imageFiles[index]);
-      }
     } catch (error) {
       console.error("Error deleting file:", error);
       alert("An error occurred while deleting the file. Please try again.");
@@ -43,6 +38,7 @@ const useImageUpload = (onImageFilesChange) => {
       console.error("Error in useEffect on imageFiles change:", error);
     }
   }, [imageFiles, onImageFilesChange]);
+  console.log("USEEFECT INSIDE useImageUpload", imageFiles);
 
   return { imageFiles, fileHandler, deleteFile };
 };

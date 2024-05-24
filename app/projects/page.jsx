@@ -1,4 +1,4 @@
-import Pagination from "@/components/Pagination/Pagination";
+import PaginationComponent from "@/components/Pagination/PaginationComponent";
 import { deleteProject } from "@/lib/actions";
 import { fetchProjects } from "@/lib/data";
 import Link from "next/link";
@@ -48,7 +48,7 @@ const ProjectList = async ({ searchParams }) => {
           </tbody>
         </table>
       </div>
-      <Pagination currentPage={page} totalPages={totalPages} />
+      <PaginationComponent currentPage={page} totalPages={totalPages} href="projects" />
     </div>
   );
 };

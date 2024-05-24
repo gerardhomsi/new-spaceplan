@@ -5,10 +5,14 @@ import useImageUpload from "./useImageUpload";
 
 const ImageUpload = ({ onImageFilesChange, imageFiles }) => {
   const { fileHandler, deleteFile } = useImageUpload(onImageFilesChange);
+  console.log("INSIDE ImageUpload.JSX", imageFiles);
 
   useEffect(() => {
-    onImageFilesChange(imageFiles);
-  }, [imageFiles, onImageFilesChange]);
+    console.log("ImageFiles before form submission:", imageFiles);
+    return () => {
+      console.log("ImageFiles after form submission:", imageFiles);
+    };
+  }, [imageFiles]);
 
   return (
     <div className="flex items-center justify-between gap-4">

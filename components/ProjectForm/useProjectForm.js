@@ -23,7 +23,6 @@ export const useProjectForm = ({ project, action }) => {
       if (!isEditing) {
         formRef.current.reset();
       }
-      setImageFiles([]);
     } catch (error) {
       console.error("Error submitting project form:", error);
       alert("An error occurred while submitting the project. Please try again.");
@@ -32,14 +31,15 @@ export const useProjectForm = ({ project, action }) => {
     }
   };
 
+  const handleImageFiles = (files) => {
+    setImageFiles(files);
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     await handleProjectFormSubmit(new FormData(formRef.current), action, isEditing);
     setImageFiles([]);
-  };
-
-  const handleImageFiles = (files) => {
-    setImageFiles(files);
+    console.log("USEPROJECTFORM inside handleformsubmit", imageFiles);
   };
 
   return {

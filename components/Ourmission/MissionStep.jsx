@@ -13,7 +13,7 @@ export const MissionStep = ({ title, subtitle, content, icon }) => (
       </h2>
     </div>
     <div className="flex-1 flex justify-center">
-      <Image src={icon} width={140} height={0} alt="icon" />
+      <Image src={icon} width={140} height={50} alt="icon" />
     </div>
     <div className="flex-1">
       <h3 className="pl-2 border-l-2 border-[#cd9a41] text-[0.9rem] lg:text-[1rem] font-medium leading-7 lg:leading-6">{content}</h3>

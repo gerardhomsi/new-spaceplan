@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className={`flex items-center p-3 gap-4 border-b-4 border-[#cd9a41] font-medium gradientLight sticky top-0 z-10`}>
       <Link rel="preload" href="/" smooth="true" type="image/png">
-        <Image src={logo} alt="banner" width={370} height={100} quality={90} />
+        <Image src={logo} priority alt="banner" width={370} height={0} quality={90} style={{ width: "auto", height: "auto" }} />
       </Link>
       <div className="sm:hidden ml-auto">
         <button onClick={toggleMenu} className={`text-3xl ${!isOpen ? "text-[#032e83]" : "text-red-600 border border-red-500 rounded-full"}`}>
