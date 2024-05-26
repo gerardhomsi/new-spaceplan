@@ -1,19 +1,8 @@
 "use client";
+import useProjectForm from "../ProjectForm/useProjectForm";
 
-import { useEffect } from "react";
-import useImageUpload from "./useImageUpload";
-
-const ImageUpload = ({ onImageFilesChange, imageFiles }) => {
-  const { fileHandler, deleteFile } = useImageUpload(onImageFilesChange);
-  console.log("INSIDE ImageUpload.JSX", imageFiles);
-
-  useEffect(() => {
-    console.log("ImageFiles before form submission:", imageFiles);
-    return () => {
-      console.log("ImageFiles after form submission:", imageFiles);
-    };
-  }, [imageFiles]);
-
+const ImageUpload = () => {
+  const { imageFiles, fileHandler, deleteFile } = useProjectForm();
   return (
     <div className="flex items-center justify-between gap-4">
       <div>

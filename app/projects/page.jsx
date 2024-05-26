@@ -1,5 +1,5 @@
 import PaginationComponent from "@/components/Pagination/PaginationComponent";
-import { deleteProject } from "@/lib/actions";
+import { Logout, deleteProject } from "@/lib/actions";
 import { fetchProjects } from "@/lib/data";
 import Link from "next/link";
 
@@ -13,6 +13,11 @@ const ProjectList = async ({ searchParams }) => {
 
   return (
     <div className="bg-slate-400 p-6 min-h-screen">
+      <form action={Logout}>
+        <button className="bg-red-500 hover:bg-red-600 my-2 text-white py-1 px-3 rounded-md shadow-md transition duration-300 ease-in-out transform" type="submit">
+          Logout
+        </button>
+      </form>
       <div className="mb-4 flex justify-between items-center">
         <Link href="/projects/add">
           <button className="border border-green-700 p-1 rounded bg-green-500 text-white hover:bg-green-600">Add New</button>
@@ -39,7 +44,7 @@ const ProjectList = async ({ searchParams }) => {
                     <button className="text-sm border border-blue-700 p-1 rounded bg-blue-500 text-white hover:bg-blue-600">Edit</button>
                   </Link>
                   <form action={deleteProject}>
-                    <input type="hidden" name="id" value={project.id} />
+                    <input type="hidden" name="id" value={project._id.toString()} />
                     <button className="text-sm border border-red-700 p-1 rounded bg-red-500 text-white hover:bg-red-600">Delete</button>
                   </form>
                 </td>

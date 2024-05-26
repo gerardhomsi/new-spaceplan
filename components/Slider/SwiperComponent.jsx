@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import useSlider from "./useSlider";
-
 import "swiper/css";
+import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs, Pagination, Autoplay } from "swiper/modules";
+import useSlider from "./useSlider";
 
 const SwiperComponent = () => {
   const { thumbsSwiper, setThumbsSwiper, handleSlideChange, projects, selectedProjectIndex } = useSlider();
@@ -16,6 +16,7 @@ const SwiperComponent = () => {
   return (
     <div>
       <Swiper
+        autoHeight
         loop
         lazy="true"
         className="rounded-lg"
@@ -41,7 +42,16 @@ const SwiperComponent = () => {
                 </ul>
               </div>
             )}
-            <Image src={image.imageUrl} width={200} height={200} alt={image.title} />
+            <Image
+              src={image.imageUrl}
+              width={0}
+              height={0}
+              alt={image.title}
+              style={{
+                height: "auto",
+                width: "auto",
+              }}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -49,7 +59,7 @@ const SwiperComponent = () => {
         {projects.map((image, index) => (
           <SwiperSlide key={index}>
             <div className="h-full w-full flex flex-col cursor-pointer">
-              <Image src={image.imageUrl} alt={image.title} width={100} height={100} className="block h-full w-full object-cover rounded-xl" />
+              <Image src={image.imageUrl} alt={image.title} className="block h-full w-full object-cover rounded-xl" />
             </div>
           </SwiperSlide>
         ))}

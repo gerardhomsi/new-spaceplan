@@ -1,4 +1,4 @@
-const containerClasses = "px-2 py-4 md:p-10 w-4/5 sm:w-3/5 xl:w-3/5 mx-auto whitespace-pre-wrap text-left flex flex-col gap-8";
+const containerClasses = "px-2 py-4 md:p-10 mx-auto whitespace-pre-wrap text-left flex flex-col gap-8";
 const highlightTextClasses = "text-[#cd9a41] text-[1.6rem]";
 
 const About = () => {

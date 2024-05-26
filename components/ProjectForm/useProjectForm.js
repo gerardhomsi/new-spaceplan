@@ -1,9 +1,7 @@
-"use client";
-
 import { uploadImages } from "@/lib/utils/uploadImages";
-import { useRef, useState } from "react";
+import { useState, useRef } from "react";
 
-export const useProjectForm = ({ project, action }) => {
+export const useProjectForm = (action, project) => {
   const isEditing = !!project;
   const formRef = useRef(null);
   const [imageFiles, setImageFiles] = useState([]);
@@ -31,24 +29,40 @@ export const useProjectForm = ({ project, action }) => {
     }
   };
 
-  const handleImageFiles = (files) => {
-    setImageFiles(files);
-  };
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     await handleProjectFormSubmit(new FormData(formRef.current), action, isEditing);
     setImageFiles([]);
-    console.log("USEPROJECTFORM inside handleformsubmit", imageFiles);
   };
 
-  return {
-    isEditing,
-    formRef,
-    imageFiles,
-    isUploading,
-    setImageFiles,
-    handleFormSubmit,
-    handleImageFiles,
+  const fileHandler = (event) => {
+    try {
+      const files = Array.from(event.target.files);
+
+      const newFiles = files.filter((file) => {
+        const isDuplicate = imageFiles.some((imageFile) => imageFile.name === file.name && imageFile.type === file.type);
+        if (isDuplicate) {
+          alert("Image already selected");
+        }
+        return !isDuplicate;
+      });
+      setImageFiles((prevFiles) => [...prevFiles, ...newFiles]);
+    } catch (error) {
+      console.error("Error handling file input:", error);
+      alert("An error occurred while processing the selected files. Please try again.");
+    }
   };
+
+  const deleteFile = (index) => {
+    try {
+      const updatedFiles = imageFiles.filter((_, i) => i !== index);
+      setImageFiles(updatedFiles);
+    } catch (error) {
+      console.error("Error deleting file:", error);
+      alert("An error occurred while deleting the file. Please try again.");
+    }
+  };
+  return { isEditing, isUploading, formRef, imageFiles, handleFormSubmit, fileHandler, deleteFile };
 };
+
+export default useProjectForm;

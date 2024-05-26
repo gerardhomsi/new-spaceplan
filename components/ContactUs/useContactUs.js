@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-import { sendEmail } from "@/actions/sendEmail";
+import { sendEmail } from "@/lib/sendEmail";
 import ToastNotification from "../toaster/ToastNotification";
 
 const useContactForm = () => {
