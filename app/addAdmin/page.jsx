@@ -12,7 +12,7 @@ const Page = () => {
   };
 
   return (
-    <div className="sectionPadding bg-gray-500 flex justify-center items-center h-full">
+    <div className="sectionPadding bg-gray-500 flex justify-center items-center min-h-screen">
       <form action={addAdmin} className="bg-white shadow-md rounded-lg p-8 max-w-md w-full relative">
         <h2 className="text-center text-blue-900 font-semibold mb-3">Add Admin</h2>
         <input type="text" name="username" placeholder="Username" className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required />
