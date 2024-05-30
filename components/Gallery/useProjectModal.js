@@ -9,9 +9,7 @@ function useProjectModal() {
     window.removeEventListener("scroll", handleScroll);
   };
 
-  const handleScroll = () => {
-    window.scrollTo(0, 0);
-  };
+  const handleScroll = () => window.scrollTo(0, 0);
 
   useEffect(() => {
     if (selectedProject) {

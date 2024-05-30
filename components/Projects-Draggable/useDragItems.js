@@ -8,18 +8,14 @@ const useDragItems = (setProjectOrder) => {
       try {
         const newOrderIds = newOrder.map((project) => project._id);
         const response = await axios.put("/api/projects", { newOrder: newOrderIds });
-
-        if (response.data && response.data.success) {
-          setProjectOrder(newOrder);
-        } else {
-          console.error("Error updating project order:", response.data ? response.data.error : "Unknown error");
-        }
+        if (response.data && response.data.success) setProjectOrder(newOrder);
+        else console.error("Error updating project order:", response.data ? response.data.error : "Unknown error");
       } catch (error) {
         console.error("Error updating project order:", error);
       }
     };
 
-    return debounce((newOrder) => handleReorder(newOrder), 500);
+    return debounce((newOrder) => handleReorder(newOrder), 1000);
   }, [setProjectOrder]);
 
   useEffect(() => {

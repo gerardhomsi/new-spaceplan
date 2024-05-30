@@ -5,7 +5,7 @@ import { fetchProjects } from "@/lib/data";
 const ProjectList = async ({ searchParams }) => {
   let page = parseInt(searchParams.page, 10);
   page = !page || page < 1 ? 1 : page;
-  const perPage = 15;
+  const perPage = 2;
   const { projects, totalProjects } = await fetchProjects(perPage, page);
 
   const totalPages = Math.ceil(totalProjects / perPage);

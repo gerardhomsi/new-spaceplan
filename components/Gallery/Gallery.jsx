@@ -25,31 +25,31 @@ const Gallery = ({ projects }) => {
   return (
     <div className={styles.galleryContainer}>
       <h1 className={styles.title}>Gallery</h1>
-      {loading && <Loading />}
-      {!loading && (
-        <>
-          <div className={styles.gridContainer}>
-            {projects.map((project) => (
-              <div key={project._id} className={styles.projectContainer}>
-                <h2 className={styles.projectTitle}>{project.projectName}</h2>
-                <div onClick={() => setSelectedProject(project)} className={styles.imageContainer}>
-                  <Image width={500} height={200} priority style={{ width: "500px", height: "auto" }} src={project.downloadUrls[0]} alt={`Image 1`} className="h-full" />
-                </div>
-                <div className={styles.projectDescription}>
-                  <p>
-                    <span className={styles.locationText}>Location:</span>
-                    <span className={styles.locationValue}>{project.location}</span>
-                  </p>
-                  <p>
-                    <span className={styles.descriptionText}>Description:</span>
-                    <span className={styles.descriptionValue}>{project.description}</span>
-                  </p>
-                </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className={styles.gridContainer}>
+          {projects.map((project) => (
+            <div key={project._id} className={styles.projectContainer}>
+              <h2 className={styles.projectTitle}>{project.projectName}</h2>
+              <div onClick={() => setSelectedProject(project)} className={styles.imageContainer}>
+                <Image width={500} height={200} priority style={{ width: "500px", height: "auto" }} src={project.downloadUrls[0]} alt={`Image 1`} className="h-full" />
               </div>
-            ))}
-          </div>
-        </>
+              <div className={styles.projectDescription}>
+                <p>
+                  <span className={styles.locationText}>Location:</span>
+                  <span className={styles.locationValue}>{project.location}</span>
+                </p>
+                <p>
+                  <span className={styles.descriptionText}>Description:</span>
+                  <span className={styles.descriptionValue}>{project.description}</span>
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
+
       {selectedProject && (
         <div className={styles.modalContainer}>
           <div className={styles.modalContent}>
@@ -63,13 +63,9 @@ const Gallery = ({ projects }) => {
               loop={true}
               lazy={"true"}
               spaceBetween={10}
-              pagination={{
-                dynamicBullets: true,
-              }}
+              pagination={{ dynamicBullets: true }}
               navigation={true}
-              thumbs={{
-                swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-              }}
+              thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
               modules={[Pagination, Thumbs, Navigation]}
               className={styles.swiperContainer}
             >
@@ -86,20 +82,7 @@ const Gallery = ({ projects }) => {
               loop={true}
               spaceBetween={10}
               slidesPerView={1}
-              breakpoints={{
-                375: {
-                  slidesPerView: 3,
-                  spaceBetween: 10,
-                },
-                640: {
-                  slidesPerView: 4,
-                  spaceBetween: 20,
-                },
-                1500: {
-                  slidesPerView: 5,
-                  spaceBetween: 40,
-                },
-              }}
+              breakpoints={{ 375: { slidesPerView: 3, spaceBetween: 10 }, 640: { slidesPerView: 4, spaceBetween: 20 }, 1500: { slidesPerView: 5, spaceBetween: 40 } }}
               autoHeight={true}
               watchSlidesProgress={true}
               modules={[Navigation, Thumbs]}

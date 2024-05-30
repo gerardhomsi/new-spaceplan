@@ -1,6 +1,5 @@
 import { Logout } from "@/lib/actions";
 import Link from "next/link";
-import React from "react";
 import DraggableProjects from "../Projects-Draggable/DraggableProjects";
 
 const ProjectsTable = ({ projects }) => {

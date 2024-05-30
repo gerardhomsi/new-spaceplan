@@ -7,9 +7,7 @@ import { BsEye, BsEyeSlash } from "react-icons/bs";
 const Page = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   return (
     <div className="sectionPadding bg-gray-500 flex justify-center items-center min-h-screen">
