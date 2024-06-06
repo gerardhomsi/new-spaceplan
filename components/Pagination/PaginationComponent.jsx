@@ -1,3 +1,5 @@
+"use client";
+
 const PaginationComponent = ({ currentPage, totalPages, href }) => {
   const prevPage = currentPage - 1 > 0 ? currentPage - 1 : 1;
   const nextPage = currentPage + 1 <= totalPages ? currentPage + 1 : totalPages;
