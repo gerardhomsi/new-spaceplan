@@ -11,7 +11,7 @@
 
 //   if (isProtectedRoute) {
 //     // Get the token from the request
-//     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+//     const token = await getToken({ req, secret: process.env.NEXT_PUBLIC_AUTH_SECRET });
 
 //     // If no token is found, redirect to login
 //     if (!token) {
@@ -39,7 +39,7 @@
 
 //   console.log(`Requesting URL: ${url.pathname}`);
 //   if (isProtectedRoute) {
-//     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+//     const token = await getToken({ req, secret: process.env.NEXT_PUBLIC_AUTH_SECRET });
 //     console.log(`Token: ${token ? "Found" : "Not Found"}`);
 //     if (!token) {
 //       console.log("Redirecting to login...");
@@ -73,9 +73,9 @@ export async function middleware(req, res) {
 
   console.log(`Requesting URL: ${url.pathname}`);
   if (isProtectedRoute) {
-    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
-    console.log("process.env.NEXTAUTH_SECRET", process.env.NEXTAUTH_SECRET);
-    console.log("process.env.NEXTAUTH_URL", process.env.NEXTAUTH_URL);
+    const token = await getToken({ req, secret: process.env.NEXT_PUBLIC_AUTH_SECRET });
+    console.log("process.env.NEXT_PUBLIC_AUTH_SECRET", process.env.NEXT_PUBLIC_AUTH_SECRET);
+    console.log("process.env.NEXT_PUBLIC_AUTH_URL", process.env.NEXT_PUBLIC_AUTH_URL);
     console.log(`Token: ${token ? "Found" : "Not Found"}`);
     if (!token) {
       console.log("Redirecting to login...");
