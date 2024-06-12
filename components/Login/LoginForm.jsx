@@ -12,7 +12,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleFormSubmit} className="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
-      <h1 className="text-2xl font-semibold mb-6 text-center">Loginnnn</h1>
+      <h1 className="text-2xl font-semibold mb-6 text-center">LLLoginnnn</h1>
       <div className="mb-4">
         <input type="text" placeholder="Username" name="username" className={inputClass} />
       </div>

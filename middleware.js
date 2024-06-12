@@ -60,6 +60,7 @@ import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
 export async function middleware(req, res) {
+  console.log("22222222222222222222222");
   // Add CORS headers
   req.headers.set("Access-Control-Allow-Origin", "*");
   req.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
