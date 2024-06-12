@@ -61,6 +61,7 @@ import { NextResponse } from "next/server";
 
 export async function middleware(req, res) {
   console.log("22222222222222222222222");
+  console.log("Request Headers:", req.headers);
   // Add CORS headers
   req.headers.set("Access-Control-Allow-Origin", "*");
   req.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
@@ -74,6 +75,7 @@ export async function middleware(req, res) {
   if (isProtectedRoute) {
     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
     console.log("process.env.NEXTAUTH_SECRET", process.env.NEXTAUTH_SECRET);
+    console.log("process.env.NEXTAUTH_URL", process.env.NEXTAUTH_URL);
     console.log(`Token: ${token ? "Found" : "Not Found"}`);
     if (!token) {
       console.log("Redirecting to login...");
