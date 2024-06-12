@@ -73,6 +73,7 @@ export async function middleware(req, res) {
   console.log(`Requesting URL: ${url.pathname}`);
   if (isProtectedRoute) {
     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+    console.log("process.env.NEXTAUTH_SECRET", process.env.NEXTAUTH_SECRET);
     console.log(`Token: ${token ? "Found" : "Not Found"}`);
     if (!token) {
       console.log("Redirecting to login...");
