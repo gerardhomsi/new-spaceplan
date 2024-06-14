@@ -10,6 +10,7 @@ export async function middleware(req) {
   if (isProtectedRoute) {
     const token = await getToken({ req, secret: process.env.AUTH_SECRET });
     console.log("tokennnnnnnnnnnnnnn", token);
+    console.log("AUTH_SECRET", process.env.AUTH_SECRET);
 
     if (!token) {
       url.pathname = "/login";
