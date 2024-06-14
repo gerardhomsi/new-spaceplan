@@ -7,14 +7,10 @@ const PaginationComponent = ({ currentPage, totalPages, href, maxVisiblePages = 
   const getPageNumbers = () => {
     const pageRange = [];
 
-    // Ensure we don't exceed total pages
     const maxPage = Math.min(totalPages, currentPage + Math.floor(maxVisiblePages / 2));
     const minPage = Math.max(1, maxPage - (maxVisiblePages - 1));
 
-    // Build page numbers within the calculated range
-    for (let i = minPage; i <= maxPage; i++) {
-      pageRange.push(i);
-    }
+    for (let i = minPage; i <= maxPage; i++) pageRange.push(i);
 
     return pageRange;
   };
