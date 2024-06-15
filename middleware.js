@@ -21,7 +21,6 @@
 // }
 
 // export const config = { matcher: ["/projects/:path*", "/addAdmin"] };
-
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
@@ -32,7 +31,7 @@ export async function middleware(req) {
   const isProtectedRoute = protectedRoutes.some((route) => new RegExp(`^${route.replace("*", ".*")}$`).test(url.pathname));
 
   if (isProtectedRoute) {
-    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET, cache: false });
     console.log("tokennnnnnnnnnnnnnn", token);
 
     // Access token directly from the returned token object
