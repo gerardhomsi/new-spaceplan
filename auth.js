@@ -29,4 +29,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   pages: { signIn: "/login" },
   debug: true,
   secret: process.env.NEXTAUTH_SECRET,
+  callbacks: {
+    async session({ session, token }) {
+      // Access user data from authorize function return value (if present)
+      session.user = token; // Replace with specific user data if needed
+      return session;
+    },
+  },
 });
