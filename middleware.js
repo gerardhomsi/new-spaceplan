@@ -21,6 +21,7 @@
 // }
 
 // export const config = { matcher: ["/projects/:path*", "/addAdmin"] };
+
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
@@ -31,13 +32,9 @@ export async function middleware(req) {
   const isProtectedRoute = protectedRoutes.some((route) => new RegExp(`^${route.replace("*", ".*")}$`).test(url.pathname));
 
   if (isProtectedRoute) {
-    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET, cache: false });
-    console.log("tokennnnnnnnnnnnnnn", token);
+    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
-    // Access token directly from the returned token object
-    const userToken = token?.accessToken; // Optional chaining to handle potential null token
-
-    if (!userToken) {
+    if (!token) {
       url.pathname = "/login";
       return NextResponse.redirect(url);
     }
@@ -47,5 +44,3 @@ export async function middleware(req) {
 }
 
 export const config = { matcher: ["/projects/:path*", "/addAdmin"] };
-
-// export { auth as middleware } from "@/auth";
