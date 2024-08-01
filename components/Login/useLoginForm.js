@@ -5,58 +5,27 @@ import { useState } from "react";
 export const useLoginForm = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
 
   async function handleFormSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
+
     try {
+      setError("");
       const formData = new FormData(event.currentTarget);
       const response = await Login(formData);
-      if (!!response.error) {
-        setError(response.error);
-      } else {
+      if (response.success) {
+        localStorage.setItem("auth_token", process.env.NEXT_PUBLIC_AUTH_TOKEN);
+        console.log("123123123122");
         router.push("/projects");
-      }
-    } catch (e) {
-      console.error(e);
-      setError("An unexpected error occurred.");
-    } finally {
+      } else setError(response.message);
+
       setIsLoading(false);
+      asdasdasdasd;
+    } catch (e) {
+      console.log("gerar", e);
     }
   }
   return { isLoading, error, handleFormSubmit };
 };
-
-// import { Login } from "@/lib/actions";
-
-// import { useRouter } from "next/navigation";
-// import { useState } from "react";
-
-// export const useLoginForm = () => {
-//   const router = useRouter();
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [error, setError] = useState(null);
-
-//   async function handleFormSubmit(event) {
-//     event.preventDefault();
-//     setIsLoading(true);
-//     try {
-//       const formData = new FormData(event.currentTarget);
-//       const response = await Login(formData);
-//       if (!!response.error) {
-//         setError(response.error);
-//       } else {
-//         // Login successful! (No redirect here)
-//         console.log("Login successful!"); // Optional: Show success message
-//       }
-//     } catch (e) {
-//       console.error(e);
-//       setError("An unexpected error occurred.");
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   }
-
-//   return { isLoading, error, handleFormSubmit };
-// };

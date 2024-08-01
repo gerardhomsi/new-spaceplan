@@ -1,8 +1,22 @@
-import { Logout } from "@/lib/actions";
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+import { Logout } from "@/lib/actions";
 import DraggableProjects from "../Projects-Draggable/DraggableProjects";
 
 const ProjectsTable = ({ projects }) => {
+  const router = useRouter();
+
+  if (typeof window !== "undefined") {
+    const asdasdasdasd = localStorage.getItem("auth_token");
+    console.log("asdasdasdasd  ", asdasdasdasd);
+
+    console.log("process.env.AUTH_TOKEN", process.env.NEXT_PUBLIC_AUTH_TOKEN);
+    console.log("!asdasdasdasd === process.env.AUTH_TOKEN", asdasdasdasd !== process.env.NEXT_PUBLIC_AUTH_TOKEN);
+    if (asdasdasdasd !== process.env.NEXT_PUBLIC_AUTH_TOKEN) router.push("/login");
+  }
   return (
     <>
       <form action={Logout}>
