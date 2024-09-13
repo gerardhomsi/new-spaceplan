@@ -1,0 +1,92 @@
+.teamContainer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  border-top-width: 4px;
+  border-bottom-width: 4px;
+  border-color: #cd9a41;
+  background: #0f0c29; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.title {
+  color: white;
+  text-decoration-line: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #cd9a41;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.gridContainer {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.memberContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 64%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.firstMember {
+  border-bottom: #cd9a41 solid;
+  border-bottom-width: 2px;
+}
+
+.lastMember {
+  border-top: #cd9a41 solid;
+  border-top-width: 2px;
+  padding-top: 2rem;
+}
+
+.image {
+  border-radius: 50%;
+  padding-left: 0.5rem;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.memberName {
+  font-size: calc(1.5rem + 1vw);
+  width: 100%;
+  color: #cd9a41;
+  text-shadow: 1px 1px 2px #000000;
+  white-space: nowrap; /* Updated property */
+}
+
+.memberRole {
+  color: white;
+  font-size: calc(1.1rem + 1vw);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.memberBio {
+  color: rgb(240, 225, 225);
+  font-size: calc(0.7rem + 1vw);
+  font-weight: 300;
+  text-shadow: 1px 1px 2px #000000;
+}

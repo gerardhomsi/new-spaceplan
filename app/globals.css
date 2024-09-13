@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  scroll-behavior: smooth;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #032e83;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2), 0px -4px 10px rgba(255, 255, 255, 0.3);
+}
+
+input[type="file"] {
+  color: rgba(0, 0, 0, 0);
+}
+
+.sectionPadding {
+  padding: 5rem;
+}
+
+.gradientLight {
+  background: #ece9e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #ffffff, #ece9e6); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #ffffff, #ece9e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradientBlue {
+  background: #0f0c29; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.footerBackground {
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/spaceplancm-396f1.appspot.com/o/website%20stuff%2Fftr.png?alt=media&token=ce1044a5-e7ac-4365-8be5-934c1a074c20");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

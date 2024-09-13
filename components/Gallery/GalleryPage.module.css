@@ -1,0 +1,197 @@
+.galleryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.title {
+  color: #032e83;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.2rem;
+  text-decoration-color: #cd9a41;
+  font-size: calc(2rem + 2vw);
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .gridContainer {
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+  }
+}
+
+.projectContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: rgb(59, 57, 57);
+  color: #cd9a41;
+  width: 300px;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.imageContainer {
+  height: 300px;
+  overflow: hidden;
+  border-bottom: 2px solid #d48c06;
+  border-top: 2px solid #d48c06;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectDescription {
+  padding: 1rem;
+  overflow-wrap: break-word;
+}
+
+.locationText,
+.descriptionText {
+  color: #cd9a41;
+}
+
+.locationValue,
+.descriptionValue {
+  color: #ebeef5;
+}
+
+.modalContainer {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.93);
+}
+
+.modalContent {
+  width: 87%;
+  height: fit-content;
+  background-color: rgb(26, 25, 25);
+  border-radius: 0.5rem;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.modalTitle {
+  color: #cd9a41;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 570px) {
+  .modalTitle {
+    font-size: 1.5rem;
+  }
+}
+
+.closeButton {
+  color: #fff;
+  font-size: 0.8rem;
+  background-color: #f00;
+  border: none;
+  border-radius: 20%;
+  padding: 0.6rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.closeButton:hover {
+  background-color: #d00;
+}
+
+.swiperContainer {
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.slideContainer {
+  width: 100%;
+  height: 65vh;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+}
+
+.slideImage {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(59, 57, 57);
+}
+
+.arrows {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1561fa;
+  z-index: 1000;
+}
+
+.arrowButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.thumbnailContainer {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thumbnailImage {
+  object-fit: fill;
+  border-radius: 0.75rem;
+  height: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .thumbnailImage {
+    height: 70%;
+  }
+}
