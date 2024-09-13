@@ -16,13 +16,12 @@ export const useLoginForm = () => {
       const formData = new FormData(event.currentTarget);
       const response = await Login(formData);
       if (response.success) {
-        localStorage.setItem("auth_token", process.env.AUTH_TOKEN);
+        localStorage.setItem("auth_token", process.env.NEXT_PUBLIC_AUTH_TOKEN);
         console.log("123123123122");
         router.push("/projects");
       } else setError(response.message);
 
       setIsLoading(false);
-      asdasdasdasd;
     } catch (e) {
       console.log("gerar", e);
     }
