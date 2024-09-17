@@ -12,6 +12,9 @@ const ProjectList = async ({ searchParams }) => {
 
   return (
     <div className="bg-slate-400 p-6 min-h-screen">
+      <h2 class="text-lg font-semibold text-center">
+        <span class="text-red-600">REMINDER:</span> WHEN YOU DELETE A PROJECT GO TO FIREBASE AND DELETE THE PHOTOS
+      </h2>
       <ProjectsTable projects={projects} />
       <PaginationComponent currentPage={page} totalPages={totalPages} href="projects" />
     </div>

@@ -11,10 +11,7 @@ const ProjectsTable = ({ projects }) => {
 
   if (typeof window !== "undefined") {
     const asdasdasdasd = localStorage.getItem("auth_token");
-    console.log("asdasdasdasd  ", asdasdasdasd);
 
-    console.log("process.env.AUTH_TOKEN", process.env.NEXT_PUBLIC_AUTH_TOKEN);
-    console.log("!asdasdasdasd === process.env.AUTH_TOKEN", asdasdasdasd !== process.env.NEXT_PUBLIC_AUTH_TOKEN);
     if (asdasdasdasd !== process.env.NEXT_PUBLIC_AUTH_TOKEN) router.push("/login");
   }
   return (
